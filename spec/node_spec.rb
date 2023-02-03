@@ -1,6 +1,6 @@
 require './lib/node'
 
-RSpec.describe Node do
+RSpec.describe 'iteration_1_part_1' do
 
   it "receives a string" do
 
