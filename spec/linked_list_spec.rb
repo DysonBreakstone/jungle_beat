@@ -1,7 +1,7 @@
 require './lib/node'
 require './lib/linked_list'
 
-RSpec.describe 'iteration_1_part_2' do
+RSpec.describe 'iteration_1.1' do
 
   it "has a head" do
 
@@ -36,7 +36,7 @@ RSpec.describe 'iteration_1_part_2' do
 end
 
 
-RSpec.describe 'iteration_1_part_3' do
+RSpec.describe 'iteration_1.3' do
 
   it "has a head" do
     list = LinkedList.new
@@ -82,5 +82,34 @@ RSpec.describe 'iteration_1_part_3' do
 
 end
 
+RSpec.describe "iteration 2.1" do
+
+  it 'produces a string if given one node' do
+    list = LinkedList.new
+    list.append("plop")
+
+    expect(list.to_string).to eq("plop")
+  end
+
+  it 'produces a string appends and prepends' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    expect(list.to_string).to eq("dop plop suu")
+    expect(list.count).to eq(3)
+  end
 
 
+  it 'can insert' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+  end
+
+end
