@@ -113,3 +113,93 @@ RSpec.describe "iteration 2.1" do
   end
 
 end
+
+RSpec.describe "iteration 2.2" do
+
+  it "has the list of words that I want" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+  
+    expect(list.to_string).to eq("deep woo shi shu blop")
+  end
+
+  it "has a working find method" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    
+    expect(list.find(2,1)).to eq ("shi")
+  end
+
+  it "definitely has a working find method" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.find(1,3)).to eq("woo shi shu")
+  end
+
+  it "has a working includes? method" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.includes?("deep")).to eq(true)
+  end
+      
+  it "has an includes? method that accurately returns false" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.includes?("dep")).to eq(false)
+  end
+
+  it "has a working pop method" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    list.pop
+    list.pop
+
+      expect(list.to_string).to eq("deep woo shi")
+  end
+
+  it "can use pop until list is empty (head == nil)" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    list.pop
+    list.pop
+    list.pop
+    list.pop
+    list.pop
+
+    expect(list.head).to eq(nil)
+  end
+
+      
+end
+

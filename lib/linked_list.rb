@@ -15,9 +15,10 @@ class LinkedList
     if @head == nil
       @head = Node.new(data)
       @count += 1
-    elsif current_node.next_node != nil
-      current_node = current_node.next_node
     else
+       while current_node.next_node != nil
+        current_node = current_node.next_node
+       end
       current_node.next_node = Node.new(data)
       @count += 1
     end
@@ -60,5 +61,47 @@ class LinkedList
     current_node.next_node.next_node = node_ahead
     @count += 1
   end
+
+  def find(position, quantity)
+    current_node = @head
+    i = 1
+    e = 1
+    section = []
+    while i <= position
+      current_node = current_node.next_node
+      i += 1
+    end
+    while e <= quantity
+      section.append(current_node.data)
+      current_node = current_node.next_node
+      e += 1
+    end
+
+    return section.join(" ")
+  end
+
+  def includes?(inclusion)
+    current_node = @head
+    includes = false
+      while current_node.next_node != nil
+        includes = true if current_node.data == inclusion
+        current_node = current_node.next_node
+      end
+    includes
+  end
+
+  def pop
+    current_node = @head
+    if current_node.next_node == nil
+      @head = nil
+    else
+      while current_node.next_node.next_node != nil
+        current_node = current_node.next_node
+      end
+    end
+    current_node.next_node = nil
+    @count -= 1
+  end
+
 
 end
