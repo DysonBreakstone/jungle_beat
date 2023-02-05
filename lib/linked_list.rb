@@ -10,8 +10,8 @@ class LinkedList
   end
 
   def append(data)
-
     current_node = @head
+
     if @head == nil
       @head = Node.new(data)
       @count += 1
@@ -24,7 +24,6 @@ class LinkedList
     end
    
     data
-    
   end
 
   def count
@@ -61,6 +60,7 @@ class LinkedList
     current_node.next_node = Node.new(data)
     current_node.next_node.next_node = node_ahead
     @count += 1
+    data
   end
 
   def find(position, quantity)
