@@ -46,6 +46,7 @@ class LinkedList
     new_node.next_node = @head if @head != nil
     @head = new_node
     @count += 1
+    data
   end
 
 
