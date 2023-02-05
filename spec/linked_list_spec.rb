@@ -47,7 +47,7 @@ RSpec.describe 'iteration_1.3' do
   it "has a working append method" do
     list = LinkedList.new
     list.append("doop")
-
+    
     expect(list.head.data).to eq("doop")
     expect(list.head.next_node).to eq(nil)
   end

@@ -1,3 +1,16 @@
+class Node
+
+  attr_reader :data
+  attr_accessor :next_node
+
+  def initialize(data)
+    @data = data
+    @next_node = nil
+  end
+
+
+end
+
 require './lib/node'
 
 class LinkedList
@@ -106,7 +119,3 @@ class LinkedList
 
 
 end
-
-
-# 1. append should return added node's data
-# 2. also insert and prepend, and pop
