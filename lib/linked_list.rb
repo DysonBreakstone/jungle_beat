@@ -110,7 +110,3 @@ class LinkedList
 
 
 end
-
-
-# 1. append should return added node's data
-# 2. also insert and prepend, and pop
