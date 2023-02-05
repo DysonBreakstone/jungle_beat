@@ -12,20 +12,21 @@ RSpec.describe "Iteration 3.1" do
     expect(jb.list.head).to eq(nil)
   end
 
-  xit "can append multiple strings at once" do
+  it "can append multiple strings at once" do
     jb = JungleBeat.new
-    jb.append("deep too ditt")
+    jb.append("deep doo ditt")
     
     expect(jb.list.head.data).to eq("deep")
-    expect("jb.list.head.next_node.data").to eq("doo")
+    expect(jb.list.head.next_node.data).to eq("doo")
   end
 
-  xit "can append multiple strings at once repeatedly" do
+  it "can append multiple strings at once repeatedly" do
     jb = JungleBeat.new
-    jb.append("deep too ditt")
+    jb.append("deep doo ditt")
     jb.append("woo hoo shu")
 
     expect(jb.count).to eq(6)
+    expect(jb.list.to_string).to eq("deep doo ditt woo hoo shu")
   end
 
 end
