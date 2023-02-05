@@ -10,8 +10,8 @@ class LinkedList
   end
 
   def append(data)
-
     current_node = @head
+
     if @head == nil
       @head = Node.new(data)
       @count += 1
@@ -22,8 +22,8 @@ class LinkedList
       current_node.next_node = Node.new(data)
       @count += 1
     end
-
-    
+   
+    data
   end
 
   def count
@@ -46,6 +46,7 @@ class LinkedList
     new_node.next_node = @head if @head != nil
     @head = new_node
     @count += 1
+    data
   end
 
 
@@ -60,6 +61,7 @@ class LinkedList
     current_node.next_node = Node.new(data)
     current_node.next_node.next_node = node_ahead
     @count += 1
+    data
   end
 
   def find(position, quantity)
@@ -92,15 +94,18 @@ class LinkedList
 
   def pop
     current_node = @head
+    popped = current_node.data
     if current_node.next_node == nil
       @head = nil
     else
       while current_node.next_node.next_node != nil
         current_node = current_node.next_node
+        popped = current_node.next_node.data
       end
     end
     current_node.next_node = nil
     @count -= 1
+    popped
   end
 
 
