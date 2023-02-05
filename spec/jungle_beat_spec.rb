@@ -30,3 +30,9 @@ RSpec.describe "Iteration 3.1" do
   end
 
 end
+
+RSpec describe "iteration 3.2" do
+
+  
+
+end
