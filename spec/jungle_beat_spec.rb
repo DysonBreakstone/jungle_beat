@@ -31,8 +31,55 @@ RSpec.describe "Iteration 3.1" do
 
 end
 
-RSpec describe "iteration 3.2" do
+RSpec.describe "iteration 3.2" do
 
-  
+  it "checks to make sure to_string method is still working" do
+  jb = JungleBeat.new("deep")
+  jb.append("dopp doop shop")
 
+  expect(jb.list.to_string).to eq("deep dopp doop shop")
+  expect(jb.count).to eq(4)
+
+  end
+
+  it "won't append things that aren't jungle beats" do
+  jb = JungleBeat.new("deep")
+  jb.append("Mississippi")
+
+  expect(jb.list.to_string).to eq("deep")
+  expect(jb.append("mississippi dopp")).to eq(1)
+  end
+
+  it "has a working .all method" do
+    jb = JungleBeat.new("Mary had a little lamb")
+
+    expect(jb.all).to eq("Mary had a little lamb")
+  end
+
+  it "has a working prepend method" do
+    jb = JungleBeat.new("Deep Dopp Doop")
+    jb.prepend("flip mississippi floop")
+
+    expect(jb.all).to eq("flip floop Deep Dopp Doop")
+  end
+
+  it "rejects more words than just mississippi" do
+    jb = JungleBeat.new
+    jb.prepend("asjdhfuef grippity groppity 34 Harambe quickly boop")
+
+    expect(jb.all).to eq("boop")
+  end
+
+  it "has a working beat_cleaner helper method" do
+    jb = JungleBeat.new
+
+    expect(jb.beat_cleaner("asjdhfuef grippity groppity 34 Harambe quickly boop").join(" ")).to eq ("boop")
+  end
+
+  it "successfully implements new beat_cleaner method into prepend" do
+    jb = JungleBeat.new("deep doop")
+    jb.prepend("asjdhfuef grippity groppity 34 Harambe quickly boop")
+
+    expect(jb.all).to eq("boop deep doop")
+  end
 end
