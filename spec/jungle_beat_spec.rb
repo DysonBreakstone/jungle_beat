@@ -92,4 +92,20 @@ RSpec.describe "Iteration 4" do
     expect(jb.play).to eq(4)
   end
 
+  it "can reset rate" do
+    jb = JungleBeat.new("deep dop dop deep")
+    jb.rate = 100
+    jb.reset_rate
+
+    expect(jb.rate).to eq(500)
+  end
+
+  it "can reset voice" do
+    jb = JungleBeat.new("deep dop dop deep")
+    jb.voice = "Daniel"
+    jb.reset_voice
+
+    expect(jb.voice).to eq("Boing")
+  end
+
 end

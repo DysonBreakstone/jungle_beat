@@ -7,7 +7,7 @@ class JungleBeat
 
   def initialize(first_beats = nil)
     @voice = "Boing"
-    @rate = 100
+    @rate = 500
     @list = LinkedList.new
     @list.append(first_beats) if first_beats != nil
   end
@@ -48,6 +48,14 @@ class JungleBeat
     beats = @list.to_string
     `say -r #{@rate} -v #{@voice} #{beats}`
     return beats.split(" ").length
+  end
+
+  def reset_rate
+    @rate = 500
+  end
+
+  def reset_voice
+    @voice = "Boing"
   end
 
   def beat_cleaner(new_beat)
