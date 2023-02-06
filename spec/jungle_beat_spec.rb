@@ -75,4 +75,11 @@ RSpec.describe "iteration 3.2" do
 
     expect(jb.beat_cleaner("asjdhfuef grippity groppity 34 Harambe quickly boop").join(" ")).to eq ("boop")
   end
+
+  it "successfully implements new beat_cleaner method into prepend" do
+    jb = JungleBeat.new("deep doop")
+    jb.prepend("asjdhfuef grippity groppity 34 Harambe quickly boop")
+
+    expect(jb.all).to eq("boop deep doop")
+  end
 end
