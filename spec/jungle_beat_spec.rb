@@ -83,3 +83,13 @@ RSpec.describe "iteration 3.2" do
     expect(jb.all).to eq("boop deep doop")
   end
 end
+
+RSpec.describe "Iteration 4" do
+
+  it "has a working play method" do
+    jb = JungleBeat.new("deep dop dop deep")
+
+    expect(jb.play).to eq(4)
+  end
+
+end
