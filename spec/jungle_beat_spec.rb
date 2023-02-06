@@ -38,6 +38,8 @@ RSpec.describe "iteration 3.2" do
   jb.append("dopp doop shop")
 
   expect(jb.list.to_string).to eq("deep dopp doop shop")
+  expect(jb.count).to eq(4)
+
   end
 
   it "won't append things that aren't jungle beats" do
@@ -45,6 +47,14 @@ RSpec.describe "iteration 3.2" do
   jb.append("Mississippi")
 
   expect(jb.list.to_string).to eq("deep")
+  expect(jb.append("mississippi dopp")).to eq(1)
   end
-  
+
+  it "has a working .all method" do
+    jb = JungleBeat.new("Mary had a little lamb")
+
+    expect(jb.all).to eq("Mary had a little lamb")
+  end
+
+
 end
