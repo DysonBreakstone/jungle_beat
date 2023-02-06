@@ -54,4 +54,16 @@ class JungleBeat
     `say -r 500 -v Boing #{beats}`
   end
 
+  def beat_cleaner(new_beat)
+    vowel = "aeiouyAEIOUY"
+    consonant = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+    three_vowels = /[#{vowel}]{3}/
+    three_consonants = /[#{consonant}]{3}/
+    clean_beat = ""
+
+
+    clean_beat = new_beat.split(" ").map{ |beat| clean_beat << beat if beat.scan(/[#{vowel}]+[#{consonant}]/).length < 2 && beat.scan(/[^a-zA-Z]/).length == 0 && !!!(beat =~ three_vowels) && !!!(beat =~ three_consonants)}
+    clean_beat.compact
+  end
+
 end

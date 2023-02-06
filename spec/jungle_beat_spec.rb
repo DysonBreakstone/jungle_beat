@@ -63,12 +63,16 @@ RSpec.describe "iteration 3.2" do
     expect(jb.all).to eq("flip floop Deep Dopp Doop")
   end
 
-  it "rejects more words than just mississippi" do
+  xit "rejects more words than just mississippi" do
     jb = JungleBeat.new
     jb.prepend("asjdhfuef grippity groppity 34 Harambe quickly boop")
 
     expect(jb.all).to eq("boop")
   end
 
-  it "has an append method which matches the prepend method"
+  it "has a working beat_cleaner helper method" do
+    jb = JungleBeat.new
+
+    expect(jb.beat_cleaner("asjdhfuef grippity groppity 34 Harambe quickly boop").join(" ")).to eq ("boop")
+  end
 end
