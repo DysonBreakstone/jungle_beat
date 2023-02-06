@@ -31,8 +31,20 @@ RSpec.describe "Iteration 3.1" do
 
 end
 
-RSpec describe "iteration 3.2" do
+RSpec.describe "iteration 3.2" do
 
+  it "checks to make sure to_string method is still working" do
+  jb = JungleBeat.new("deep")
+  jb.append("dopp doop shop")
+
+  expect(jb.list.to_string).to eq("deep dopp doop shop")
+  end
+
+  it "won't append things that aren't jungle beats" do
+  jb = JungleBeat.new("deep")
+  jb.append("Mississippi")
+
+  expect(jb.list.to_string).to eq("deep")
+  end
   
-
 end

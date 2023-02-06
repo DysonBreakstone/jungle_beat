@@ -11,7 +11,6 @@ class LinkedList
 
   def append(data)
     current_node = @head
-
     if @head == nil
       @head = Node.new(data)
       @count += 1
