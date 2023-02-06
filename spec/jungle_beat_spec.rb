@@ -4,7 +4,7 @@ require './lib/jungle_beat'
 
 RSpec.describe "Iteration 3.1" do
 
-  xit "exists" do
+  it "exists" do
     jb = JungleBeat.new
   
     expect(jb).to be_instance_of(JungleBeat)
@@ -12,7 +12,7 @@ RSpec.describe "Iteration 3.1" do
     expect(jb.list.head).to eq(nil)
   end
 
-  xit "can append multiple strings at once" do
+  it "can append multiple strings at once" do
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     
@@ -20,7 +20,7 @@ RSpec.describe "Iteration 3.1" do
     expect(jb.list.head.next_node.data).to eq("doo")
   end
 
-  xit "can append multiple strings at once repeatedly" do
+  it "can append multiple strings at once repeatedly" do
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     jb.append("woo hoo shu")
@@ -33,7 +33,7 @@ end
 
 RSpec.describe "iteration 3.2" do
 
-  xit "checks to make sure to_string method is still working" do
+  it "checks to make sure to_string method is still working" do
   jb = JungleBeat.new("deep")
   jb.append("dopp doop shop")
 
@@ -42,7 +42,7 @@ RSpec.describe "iteration 3.2" do
 
   end
 
-  xit "won't append things that aren't jungle beats" do
+  it "won't append things that aren't jungle beats" do
   jb = JungleBeat.new("deep")
   jb.append("Mississippi")
 
@@ -50,20 +50,20 @@ RSpec.describe "iteration 3.2" do
   expect(jb.append("mississippi dopp")).to eq(1)
   end
 
-  xit "has a working .all method" do
+  it "has a working .all method" do
     jb = JungleBeat.new("Mary had a little lamb")
 
     expect(jb.all).to eq("Mary had a little lamb")
   end
 
-  xit "has a working prepend method" do
+  it "has a working prepend method" do
     jb = JungleBeat.new("Deep Dopp Doop")
     jb.prepend("flip mississippi floop")
 
     expect(jb.all).to eq("flip floop Deep Dopp Doop")
   end
 
-  xit "rejects more words than just mississippi" do
+  it "rejects more words than just mississippi" do
     jb = JungleBeat.new
     jb.prepend("asjdhfuef grippity groppity 34 Harambe quickly boop")
 
