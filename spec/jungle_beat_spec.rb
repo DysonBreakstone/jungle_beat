@@ -31,6 +31,8 @@ RSpec.describe "Iteration 3.1" do
 
 end
 
+# *********************************************************************
+
 RSpec.describe "iteration 3.2" do
 
   it "checks to make sure to_string method is still working" do
@@ -82,7 +84,17 @@ RSpec.describe "iteration 3.2" do
 
     expect(jb.all).to eq("boop deep doop")
   end
+
+  it "successfully implements new beat_cleaner method into append" do
+    jb = JungleBeat.new("deep doop")
+    jb.append("asjdhfuef grippity groppity 34 Harambe quickly boop")
+
+    expect(jb.all).to eq("deep doop boop")
+  end
+
 end
+
+# ********************************************************
 
 RSpec.describe "Iteration 4" do
 
